@@ -42,29 +42,13 @@ nav ul li a:hover {
 nav ul li a:active {
     color: #ffd700;
 }
-.video{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-.video video{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    left: auto;
-    transform: translate(-50%,-50%);
-    min-width: 100%;
-    min-height: 100%;
+#form{
+    z-index: 1;
 }
 
 /* Header Section */
 header {
-    /* background: i */
+    /* margin-top: 45px; */
     height: 500px;
     color: #fff;
     text-align: center;
@@ -72,13 +56,29 @@ header {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    height: fit-content;
+}
+header video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Push the video behind the content */
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 header::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(10, 10, 63, 0.5);
-    /* background: url(image/video.mp4); */
 }
 header .content {
     position: relative;
@@ -86,7 +86,7 @@ header .content {
 }
 header h1 {
     font-size: 3rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     animation: fadeInDown 1s ease-in-out;
 }
 header p {
@@ -104,19 +104,19 @@ header p {
 }
 /* Section Styling */
 section {
-    padding: 80px 20px;
+    padding: 40px 20px;
 }
-.container {
+/* .container {
     max-width: 1200px;
     margin: auto;
-}
+} */
 .video{
     max-width: 100%;
     min-height: 100%;
 }
 .section-title {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 5x;
     font-size: 2.5rem;
     color: #003366;
 }
@@ -158,10 +158,10 @@ section {
 }
 /* Contact Form */
 form {
-    max-width: 600px;
+    max-width: 60%;
     margin: auto;
     background: #fff;
-    padding: 30px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -170,8 +170,8 @@ form label {
 }
 form input, form textarea {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0 20px;
+    padding: 15px;
+    margin: 5px 10px 5px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border 0.3s;
