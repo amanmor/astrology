@@ -195,6 +195,25 @@ form button {
 form button:hover {
     background: #002244;
 }
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.drop-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+}
+.drop-content a {
+    color: black;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 /* Footer */
 footer {
     background: #003366;

@@ -14,8 +14,8 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#blog">Blog</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
     </ul>
   </nav>
 
@@ -48,8 +48,24 @@
           <label for="phone">Place:</label>
           <input type="text" id="place" name="place" placeholder="Place " required />
 
-          <label for="service">Place:</label>
-          <input type="text" id="place" name="place" placeholder="Place " required />
+          <div class="dropdown">
+            <button class="dropbtn">Service</button>
+            <div class="drop-content">
+              <a href="#">service1</a>
+              <a href="#">service2</a>
+              <a href="#">service3</a>
+              <a href="#">service4</a>
+              
+            </div>
+          </div>
+          <!-- <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+              <a href="#">Option 1</a>
+              <a href="#">Option 2</a>
+              <a href="#">Option 3</a>
+            </div>
+          </div> -->
 
           <button type="submit">Book Appointment</button>
         </form>
@@ -117,8 +133,39 @@
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio">
+ 
+
+  <!-- Blog Section -->
+  <section id="blog" style="background: #f9fbff;">
+    <div class="container">
+      <h2 class="section-title">Blog & Articles</h2>
+      <div class="blog">
+        <!-- Blog Card 1 -->
+        <div class="card-wrapper">
+          <div class="card">
+            <img src="image/blog1.webp" alt="Astrology Tips">
+            <div class="card-content">
+              <h3>Remedies to Learn Jyotish</h3>
+              <p>This blog is for serious students of Jyotish to help them in their Journey.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Blog Card 2 -->
+        <div class="card-wrapper">
+          <div class="card">
+            <img src="image/Zodiac.png" alt="Zodiac Insights">
+            <div class="card-content">
+              <h3>  </h3>
+              <p>Dive into the unique traits and secrets of each zodiac sign.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Portfolio Section -->
+   <section id="portfolio">
     <div class="container">
       <h2 class="section-title">Portfolio</h2>
       <div class="portfolio">
@@ -155,35 +202,6 @@
     </div>
   </section>
 
-  <!-- Blog Section -->
-  <section id="blog" style="background: #f9fbff;">
-    <div class="container">
-      <h2 class="section-title">Blog & Articles</h2>
-      <div class="blog">
-        <!-- Blog Card 1 -->
-        <div class="card-wrapper">
-          <div class="card">
-            <img src="image/blog1.webp" alt="Astrology Tips">
-            <div class="card-content">
-              <h3>Remedies to Learn Jyotish</h3>
-              <p>This blog is for serious students of Jyotish to help them in their Journey.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Blog Card 2 -->
-        <div class="card-wrapper">
-          <div class="card">
-            <img src="image/Zodiac.png" alt="Zodiac Insights">
-            <div class="card-content">
-              <h3>  </h3>
-              <p>Dive into the unique traits and secrets of each zodiac sign.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact Section -->
 
   <!-- Footer -->
@@ -207,6 +225,19 @@
         });
       });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".dropbtn").addEventListener("click", function () {
+        document.querySelector(".dropdown-content").classList.toggle("show");
+    });
+
+    // Close dropdown if clicking outside
+    window.addEventListener("click", function (e) {
+        if (!document.querySelector(".dropdown").contains(e.target)) {
+            document.querySelector(".dropdown-content").classList.remove("show");
+        }
+    });
+});
   </script>
 </body>
 </html>
