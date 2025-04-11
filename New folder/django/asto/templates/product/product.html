@@ -1,0 +1,55 @@
+{% load static %}
+<link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+  {% for product in products %}
+  <div
+    class="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl h-min"
+  >
+    <!-- Product Image -->
+    <div class="relative ">
+      <img
+        src="{{ product.image.url }}"
+        alt="{{ product.name }}"
+        class="object-cover h-32 w-auto mx-auto block"
+      />
+      <div
+        class="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-sm font-semibold rounded-md shadow-lg"
+      >
+        ₹{{ product.price }}
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="p-5 text-center">
+      <h3 class="text-xl font-bold text-blue-900">{{ product.name }}</h3>
+      <p class="text-gray-600 mt-2">
+        {{ product.description|truncatewords:15 }}
+      </p>
+
+      <!-- Add to Cart Button -->
+      <button
+        onclick="addToCart({{ product.id }})"
+        class="mt-4 w-full bg-blue-600 text-white px-6 py-2 rounded-lg text-lg font-semibold transition-transform duration-200 hover:scale-105 hover:bg-blue-800"
+      >
+        🛒 Add to Cart
+      </button>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  function addToCart(productId) {
+    fetch(`/add-to-cart/${productId}/`, {
+      method: "POST",
+      headers: { "X-CSRFToken": "{{ csrf_token }}" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(data.message);
+      })
+      .catch((error) => console.error("Error:", error));
+  }
+</script>
+ 
